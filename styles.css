@@ -161,6 +161,7 @@ body[data-theme="dark"] .profile-pic {
     bottom: 30px;
     right: 30px;
     z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .theme-switch {
     display: inline-block;
@@ -238,4 +239,10 @@ input:checked + .theme-switch::after {
 }
 .slider.round:before {
     border-radius: 50%;
+}
+/* Class to hide the toggle button */
+.theme-switch-wrapper.hidden {
+    opacity: 0;
+    transform: translateY(100px);
+    pointer-events: none;
 }
