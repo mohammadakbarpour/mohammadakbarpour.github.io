@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('#checkbox');
     const currentTheme = localStorage.getItem('theme');
 
-    // Apply the saved theme on page load
     if (currentTheme) {
         document.body.setAttribute('data-theme', currentTheme);
         if (currentTheme === 'dark') {
@@ -12,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Listen for toggle switch changes
     themeToggle.addEventListener('change', function() {
         if (this.checked) {
             document.body.setAttribute('data-theme', 'dark');
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
     // --- On-Scroll Animation Logic ---
     const scrollElements = document.querySelectorAll('.scroll-animate');
 
@@ -31,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optional: Stop observing after it becomes visible for performance
                 observer.unobserve(entry.target);
             }
         });
@@ -41,8 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-
-    // --- Skill Bar Animation Logic (triggered by Intersection Observer) ---
+    // --- Skill Bar Animation Logic ---
     const skillsSection = document.querySelector('#skills');
     let skillsAnimated = false;
 
@@ -63,4 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (skillsSection) {
         skillsObserver.observe(skillsSection);
     }
+    
+    // --- NEW: Hide Toggle on Scroll Down ---
+    const toggleWrapper = document.querySelector('.theme-switch-wrapper');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+        if (lastScrollY < window.scrollY) {
+            // Scrolling Down
+            toggleWrapper.classList.add('hidden');
+        } else {
+            // Scrolling Up
+            toggleWrapper.classList.remove('hidden');
+        }
+        lastScrollY = window.scrollY;
+    });
+
 });
