@@ -20,7 +20,7 @@ body {
     color: var(--primary-text-color);
     line-height: 1.6;
     margin: 0;
-    overflow-x: hidden; /* ✅ پیشنهاد 1: جلوگیری از اسکرول افقی */
+    overflow-x: hidden; 
 }
 
 .container {
@@ -182,7 +182,7 @@ p, li { color: var(--secondary-text-color); text-align: justify; }
 }
 @media (max-width: 480px) {
     body {
-        font-size: 0.95rem; /* ✅ پیشنهاد 3: بهبود خوانایی فونت */
+        font-size: 0.95rem; 
     }
     .entry-header { flex-direction: column; align-items: flex-start; }
     .entry .date { margin-top: 4px; font-size: 0.85em; background-color: #f0f3f5; padding: 2px 8px; border-radius: 4px; }
