@@ -141,16 +141,43 @@ p, li { color: var(--secondary-text-color); text-align: justify; }
     .container { margin: 20px; padding: 25px; }
 }
 @media (max-width: 768px) {
-    .main-header { flex-direction: column; text-align: center; }
-    .profile-pic { width: 130px; height: 130px; }
-    .subtitle, .contact-info { text-align: center; justify-content: center; }
-    .container { margin: 0; border-radius: 0; box-shadow: none; }
-    .contact-info { flex-direction: column; gap: 10px; align-items: center; }
-    .language-switcher { top: 15px; right: 15px; }
-    [dir="rtl"] .language-switcher { right: auto; left: 15px; }
-    
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-pic {
+        width: 130px;
+        height: 130px;
+    }
+    .subtitle, .contact-info {
+        text-align: center;
+        justify-content: center;
+    }
+    /* START: کد اضافه‌شده برای رفع مشکل */
+    [dir="rtl"] .subtitle {
+        text-align: center;
+    }
+    /* END: کد اضافه‌شده برای رفع مشکل */
+    .container {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .contact-info {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .language-switcher {
+        top: 15px;
+        right: 15px;
+    }
+    [dir="rtl"] .language-switcher {
+        right: auto;
+        left: 15px;
+    }
     .skills-sidebar {
-        padding-top: 30px; /* ✅ پیشنهاد 2: ایجاد فاصله عمودی */
+        padding-top: 30px;
     }
 }
 @media (max-width: 480px) {
